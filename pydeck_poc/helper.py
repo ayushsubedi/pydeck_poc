@@ -1,23 +1,10 @@
-from googletrans import Translator
 import requests
 import pydeck as pdk
 from pydeck_poc import application
 
-translator = Translator()
-EXTERNAL_API = 'https://www.affirmations.dev/'
-DEFAULT_TEXT = 'hello world, we are having issues'
-
-def tweet_text():
-    r = requests.get(EXTERNAL_API)
-    data = r.json()
-    eng_text = data.get('affirmation', DEFAULT_TEXT)
-    nep_text = translator.translate(eng_text, dest='ne')
-    return nep_text.text
-
 
 def deck_example():
     UK_ACCIDENTS_DATA = 'https://raw.githubusercontent.com/visgl/deck.gl-data/master/examples/3d-heatmap/heatmap-data.csv'
-
     layer = pdk.Layer(
         'HexagonLayer',  # `type` positional argument is here
         UK_ACCIDENTS_DATA,
