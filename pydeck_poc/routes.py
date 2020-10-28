@@ -2,7 +2,7 @@
 from flask import render_template
 from pydeck_poc import application
 from pydeck_poc import basic_auth
-from pydeck_poc.helper import tweet_text
+from pydeck_poc.helper import tweet_text, deck_example
 
 
 
@@ -21,3 +21,6 @@ def basicauthtest():
 def apitest():
     return tweet_text()
 
+@application.route('/deckexample')
+def deckexample():
+    return deck_example()
