@@ -15,5 +15,8 @@ application.config['SECRET_KEY'] = environ.get('SECRET_KEY')
 application.config['BASIC_AUTH_USERNAME'] = environ.get('BASIC_AUTH_USERNAME')
 application.config['BASIC_AUTH_PASSWORD'] = environ.get('BASIC_AUTH_PASSWORD')
 
+# Mapbox
+application.config['MAPBOX_AUTH'] = environ.get('MAPBOX_AUTH')
+
 
 from pydeck_poc import routes

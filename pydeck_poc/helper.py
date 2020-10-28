@@ -1,6 +1,7 @@
 from googletrans import Translator
 import requests
 import pydeck as pdk
+from pydeck_poc import application
 
 translator = Translator()
 EXTERNAL_API = 'https://www.affirmations.dev/'
@@ -39,5 +40,5 @@ def deck_example():
         bearing=-27.36)
 
     # Combined all of it and render a viewport
-    r = pdk.Deck(layers=[layer], initial_view_state=view_state)
+    r = pdk.Deck(layers=[layer], initial_view_state=view_state, mapbox_key=application.config['MAPBOX_AUTH'])
     return r.to_html(filename=None, as_string=True)
